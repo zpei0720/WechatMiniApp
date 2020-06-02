@@ -1,0 +1,7 @@
+<view class="container"> 
+  <image class="avatar" src="/images/avatar/Jay.jpg"></image>
+  <text class="motto">"HelloWorld!"</text>
+  <view class="journey-container" catchtap="onTapJump">
+    <text class="journey">Let's Start!</text>
+  </view>
+</view>

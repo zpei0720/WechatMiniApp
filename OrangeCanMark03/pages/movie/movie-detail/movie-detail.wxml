@@ -1,0 +1,107 @@
+<import src="../stars/stars-tpl.wxml" />
+
+<view class="container" style='background: rgba({{bg.rgba}})'>
+  <image class="background" src="{{ movie.images.large }}" mode="aspectFill" />
+  <!-- 电影基本信息 -->
+  <view class="meta">
+    <view class='meta-l'>
+      <image class="poster" src="{{ movie.images.large }}" mode="aspectFit" />
+    </view>
+    <view class='meta-r'>
+      <!-- 中文名 -->
+      <view class="title">{{ movie.title }}({{ movie.year }})</view>
+      <!-- 英文名 -->
+      <view class='sub-title words'>{{movie.original_title}}</view>
+      <!-- 一些信息 -->
+      <view class='some-info'>
+        <view>
+          类型：<text wx:for='{{movie.genres}}' wx:key="index" wx:for-item='itemGen'>{{itemGen}} </text>
+        </view>
+        <view>
+          国家：<text wx:for='{{movie.countries}}' wx:key="index" wx:for-item='itemCoun'>{{itemCoun}} </text>
+        </view>
+        <view>
+          <text>片长：{{movie.durations[0]}} </text>
+        </view>
+        <view>
+          <text>大陆上映时间：{{movie.pubdate}} </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+   <!-- 豆瓣评分 -->
+    <view class='progress'>
+      <text class='word'>豆瓣评分</text>
+      <view class='star-info'>
+        <view class='star-info-l'>
+          <view class='star-num'>{{movie.rating.average}}</view>
+          <image src='/images/rating/rating{{movie.rating.stars}}.png' class='star-img'></image>
+        </view>
+        <view class='star-info-r'>
+          <view class='star-cont' wx:for='{{starList}}' wx:key="{{index}}">
+            <text>{{item.img}}</text>
+            <progress percent="{{item.star}}" active stroke-width="8" backgroundColor="#eee" color="#fdb933" border-radius="50rpx" />
+          </view>
+          <view class='star-people'>{{movie.ratings_count}} 评分</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 简介 -->
+    <view class='movie-intr'>
+      <view class='title'>简介：</view>
+      <view class="cont {{inWordShow == 'movie-intro'?'':'cont-act'}}" data-id='movie-intro' bindtap='bindIntrShow'>{{movie.summary}}</view>
+    </view>
+
+    <!-- 影人 -->
+    <view class='movie-intr'>
+      <view class='title'>影人：</view>
+      <scroll-view class='film' scroll-x>
+        <view class='film-cont' wx:for='{{movie.directors}}' wx:key="{{index}}" wx:for-item="itemFilm">
+          <image src='{{itemFilm.avatars.medium}}' mode='aspectFit' />
+          <view class='director-name'>{{itemFilm.name}}</view>
+          <view class='director-name director-title'>导演</view>
+        </view>
+        <view class='film-cont' wx:for='{{movie.casts}}' wx:key="{{index}}" wx:for-item="itemCasts">
+          <image src='{{itemCasts.avatars.medium}}' mode='aspectFit' />
+          <view class='director-name'>{{itemCasts.name}}</view>
+          <view class='director-name director-title'>演员</view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 剧照 -->
+    <view class='movie-intr'>
+      <view class='title'>剧照：</view>
+      <scroll-view class='film' scroll-x>
+        <view class='film-cont file-cont-photo' wx:for='{{movie.photos}}' wx:key="{{index}}" wx:for-item="itemPhoto">
+          <image class='file-photo' src='{{itemPhoto.image}}' mode='aspectFill' bindtap='lookPic' data-src="{{itemPhoto.image}}"/>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 短评 -->
+    <view class='movie-intr movie-comments'>
+      <view class='title'>短评：</view>
+      <view class='comments'  wx:for='{{movie.popular_comments}}' wx:key="{{index}}" wx:for-item="itemComm">
+        <view class='comments-header'>
+          <image class='photo' src='{{itemComm.author.avatar}}' mode='aspectFit' />
+          <view class='header-l'>
+            <view class='name'>{{itemComm.author.name}}</view>
+            <view class='star-time'>
+              <image src="/images/rating/rating{{itemComm.rating.value + '0'}}.png" class='star' />
+              <view class='time'>{{itemComm.created_at}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="cont {{inWordShow}} {{index}} {{inWordShow == index?'':'cont-act'}}" data-id='{{index}}' bindtap='bindIntrShow'>
+          {{itemComm.content}}
+        </view>
+        <view class='comments-footer'>
+          <image mode='aspctFit' src='{{goodImg}}' />
+          {{itemComm.useful_count}}
+        </view>
+      </view>
+    </view>
+</view>

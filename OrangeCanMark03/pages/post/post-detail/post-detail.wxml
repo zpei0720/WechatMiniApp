@@ -1,0 +1,31 @@
+<view class="container">
+  <image class="head-image" src="{{post.postImg}}" mode = "aspectFill" />
+  <text class="title">{{post.title}}</text>
+    <view class="author-date">
+      <view class="author-box">
+        <image class="avatar" src="{{post.avatar}}" />
+        <text class="author">{{post.author}}</text>
+      </view>
+      <text class="date">{{post.dateTime}}</text>
+    </view>
+  <text class="detail">{{post.detail}}</text>
+</view>
+
+<view class="tool">
+  <view class="tool-item" catchtap="onCollectionTap" data-post-id="{{post.postId}}">
+    <image wx:if="{{post.collectionStatus}}" src="/images/icon/collected.jpg"></image>
+    <image wx:else src="/images/icon/collect.jpg" />
+    <text>{{post.collectionNum}}</text>
+  </view>
+
+  <view class="tool-item comment" catchtap="onCommentTap" data-post-id="{{post.postId}}">
+    <image src="/images/icon/comment.jpg" />
+    <text>{{post.commentNum}}</text>
+  </view>
+
+  <view class="tool-item" catchtap="onLikeTap" data-post-id="{{post.postId}}">
+    <image animation="{{animationLike}}" wx:if="{{post.likeStatus}}" src="/images/icon/liked.jpg"></image>
+    <image animation="{{animationLike}}" wx:else src="/images/icon/like.jpg" />
+    <text>{{post.likeNum}}</text>
+  </view>
+</view>

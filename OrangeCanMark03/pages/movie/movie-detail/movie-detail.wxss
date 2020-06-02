@@ -1,0 +1,260 @@
+@import "../stars/stars-tpl.wxss";
+
+.container {
+  padding: 20rpx;
+}
+.meta {
+  display: flex;
+}
+.meta-r {
+  margin: 20rpx;
+}
+
+.poster {
+  width: 300rpx;
+  height: 400rpx;
+}
+
+.title {
+  font-style: 42rpx;
+  color: #000;
+}
+.sub-title {
+  line-height: 2;
+}
+.words {
+  font-size: 30rpx;
+  color: #444;
+}
+.some-info {
+  font-size: 24rpx;
+  color: #444;
+  line-height: 1.5;
+}
+.some-info view {
+  line-height: 1.8;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  /* z-index: -1000; */
+  opacity: 0.1;
+  -webkit-filter:blur(5px);
+}
+
+.progress {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 88%;
+  height: 230rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  margin: 40rpx auto;
+  padding-right: 40rpx;
+}
+
+.progress .word {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+  font-size: 20rpx;
+}
+
+.progress .star-info {
+  display: flex;
+  align-items: center;
+}
+
+.progress .star-info-l {
+  margin-right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress .star-info-l .star-num {
+  font-size: 45rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.progress .star-info-l .star-img {
+  width: 120rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+.progress .star-info-r {
+  width: 400rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+
+.progress .star-info-r .star-cont {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.progress .star-info-r .star-cont text {
+  text-align: right;
+  display: inline-block;
+  width: 100rpx;
+  font-size: 20rpx;
+  margin-right: 15rpx;
+}
+
+.progress .star-info-r progress {
+  margin-bottom: 5rpx;
+  width: 280rpx;
+}
+
+.progress .star-info-r .star-people {
+  font-size: 20rpx;
+  color: #ddd;
+  text-align: right;
+}
+.movie-intr {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.movie-intr .title{
+  font-size: 28rpx;
+  color: #000;
+  margin: 0 0 20rpx 0;
+}
+.movie-intr .cont{
+  font-size: 28rpx;
+  color: #444;
+  line-height: 1.5;
+  margin: 20rpx 0;
+}
+
+/* 简介缩略 */
+.movie-intr .cont-act {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+/* 影人，剧照 */
+.movie-intr .film{
+  width: 100%;
+  white-space: nowrap;
+}
+.movie-intr .film-cont {
+  width: 210rpx;
+  height: auto;
+  margin-right: 10rpx;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.movie-intr .film-cont image {
+  width: 200rpx;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+.file-cont-photo {
+
+}
+.movie-intr .file-cont-photo,
+.movie-intr .file-cont-photo .file-photo {
+  width: 400rpx;
+  height: 300rpx;
+}
+.movie-intr .film-cont .director-name {
+  width: 200rpx;
+  display: inline-block;
+  align-items: center;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #444;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  margin: 5rpx 0;
+} 
+.movie-intr .film-cont .director-title {
+  color: #a1a3a6;
+}
+
+/* 短评 */
+.movie-comments{
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 10rpx #ddd;
+}
+.movie-comments .comments {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.movie-comments .comments:last-child {
+  border: none;
+}
+.movie-comments .comments-header {
+  display: flex;
+  align-items: center;
+}
+.movie-comments .comments-header .photo {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.movie-comments .header-l {
+
+}
+.movie-comments .header-l .name {
+  font-size: 24rpx;
+  color: #000;
+}
+.movie-comments .header-l .star-time {
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+  color: #ddd;
+}
+.movie-comments .header-l .star-time image {
+  width: 120rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+.movie-comments .comments-footer {
+  font-size: 24rpx;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+}
+.movie-comments .comments-footer image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5rpx;
+}
+
+
+
+
+
+
+
+
+
+
+

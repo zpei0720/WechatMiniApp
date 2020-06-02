@@ -1,0 +1,42 @@
+<view class="container">
+  <!-- 用户信息面板 -->
+  <view class="category-item personal-info">
+    <!-- 获取用户信息 -->
+    <view class="user-avatar">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <button class="getUserButton {{hasUserInfo?'hide':''}}" open-type='getUserInfo' bindgetuserinfo='bindUserInfo'>点我授权</button>
+    <view class="user-name {{hasUserInfo?'':'hide'}}">
+      <view class="user-nickname">{{userInfo.nickName}}</view>
+    </view>
+    <!-- 获取当地天气 -->
+    <view class='weather' bindtap='bindWeather'>
+      <view class='weather-city'>{{nowCity}}</view>
+      <view class='weather-wemp'>{{nowWemp}}</view>
+      <view class='weather-wind'>{{nowWeather}}</view>
+    </view>
+  </view>
+
+  <!-- 缓存面板 -->
+  <view class="category-item">
+    <block wx:for="{{cache}}">
+      <view class="detail-item" catchtap="{{item.tap}}">
+        <image src="{{item.iconurl}}"></image>
+        <text>{{item.title}}</text>
+        <view class="detail-item-btn"></view>
+      </view>
+    </block>
+  </view>
+
+  <!-- API面板
+  <view class="category-item">
+    <block wx:for="{{api}}">
+      <view class="detail-item" catchtap="{{item.tap}}">
+        <image src="{{item.iconurl}}"></image>
+        <text>{{item.title}}</text>
+        <view class="detail-item-btn"></view>
+      </view>
+    </block>
+  </view> -->
+
+</view>
